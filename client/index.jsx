@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Sources from './components/sources.jsx';
+import Sources from './src/components/sources.jsx';
 
 class App extends React.Component {
     constructor(props){
