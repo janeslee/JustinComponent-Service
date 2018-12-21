@@ -5,27 +5,27 @@ import axios from 'axios';
 
 
 class App extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            tracks : [],
+            tracks: [],
             playlists: []
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         this.getRelatedTracks();
     }
-    getRelatedTracks(){
+    getRelatedTracks() {
         axios.get('/api/trackStats')
-          .then(res => console.log('get res: ', res))
-          .catch(err => console.log('get err: ', err));
+            .then(res => console.log('get res: ', res))
+            .catch(err => console.log('get err: ', err));
     }
-    
-    render(){
-    return(<div>
-    <div>Hi there!</div>
-    <div><Sources tracks={this.state.tracks} playlists={this.state.playlists}/></div>
-    </div>)
+
+    render() {
+        return (<div>
+            <div>Hi there!</div>
+            <div><Sources tracks={this.state.tracks} playlists={this.state.playlists} /></div>
+        </div>)
     }
 }
 

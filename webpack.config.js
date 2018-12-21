@@ -11,12 +11,12 @@ module.exports = {
     filename: 'bundle.js',
     path: dir_out
   },
-  module : {
-    rules : [
+  module: {
+    rules: [
       {
-        test : /\.jsx?/,
-        include : dir_in,
-        loader : 'babel-loader',      
+        test: /\.jsx?/,
+        include: dir_in,
+        loader: 'babel-loader',
         query: {
           presets: ['react']
         }
