@@ -4,9 +4,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+
 app.use(bodyParser.urlencoded({
     extended: false
   }));
+  
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client/dist'));
 
@@ -15,8 +17,6 @@ app.post('/trackStats', (req, res) => {
   
     getTrackData(user, (error, data) => {
       if(error) {return error}
-  
-      
       updateTrackData();
     });
   });
@@ -24,11 +24,8 @@ app.post('/trackStats', (req, res) => {
   app.get('/trackStats', (req, res) => {
   
     getTrackStats((err, data) => {
-  
       res.send(data);
-  
     });
-  
   });
   
   let port = 3001;

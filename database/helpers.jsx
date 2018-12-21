@@ -1,7 +1,8 @@
 const mysql = require('mysql');
 const mysqlConfig = require('./config.js');
-
 const connection = mysql.createConnection(mysqlConfig);
+
+import faker from 'faker';
 
 const getAllTracks = function(callback) {
   connection.query('SELECT * from trackInfo', (err, results, fields) => {
