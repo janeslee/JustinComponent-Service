@@ -6,7 +6,7 @@ class Sources extends React.Component {
         super(props);
     }
     render(){
-    <div>We will be sources!</div>
+    return (<div>We will be sources!</div>)
     }
 }
 export default Sources;
