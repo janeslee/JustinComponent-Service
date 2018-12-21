@@ -16,16 +16,8 @@ app.post('/trackStats', (req, res) => {
     getTrackData(user, (error, data) => {
       if(error) {return error}
   
-      let repos = [];
-      data.forEach(repo => {
-        repos.push({
-          repoName: repo.name,
-          repoID: repo.id,
-          forks: repo.forks,
-          repoURL: repo.html_url
-        });
-      });
-      updateTrackData(repos);
+      
+      updateTrackData();
     });
   });
   
@@ -33,21 +25,13 @@ app.post('/trackStats', (req, res) => {
   
     getTrackStats((err, data) => {
   
-      data.sort((a, b)=>{
-          if(a.forks > b.forks)return -1;
-          if(a.forks < b.forks)return 1;
-          return 0;
-        });
-      while(data.length > 25){
-        data.pop();
-      }
       res.send(data);
   
     });
   
   });
   
-  let port = 1128;
+  let port = 3001;
   
   app.listen(port, () => {
     console.log(`listening on port ${port}`);
