@@ -13,19 +13,20 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client/dist'));
 
 app.post('/trackStats', (req, res) => {
-    let user = req.body.user;
-  
-    getTrackData(user, (error, data) => {
-      if(error) {return error}
-      updateTrackData();
-    });
+    let user = req.body;
+    console.log('posting at server: '. req.body);
+    // getTrackData(user, (error, data) => {
+    //   if(error) {return error}
+    //   updateTrackData();
+    // });
   });
   
-  app.get('/trackStats', (req, res) => {
-  
-    getTrackStats((err, data) => {
-      res.send(data);
-    });
+  app.get('/api/trackStats', (req, res) => {
+    console.log('getting at server ');
+    
+    // getTrackStats((err, data) => {
+    //   res.send(data);
+    // });
   });
   
   let port = 3001;
