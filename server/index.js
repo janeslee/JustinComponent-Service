@@ -23,7 +23,8 @@ app.post('/trackStats', (req, res) => {
   
   app.get('/api/trackStats', (req, res) => {
     console.log('getting at server ');
-    
+    res.send('Hi there!');
+
     // getTrackStats((err, data) => {
     //   res.send(data);
     // });
