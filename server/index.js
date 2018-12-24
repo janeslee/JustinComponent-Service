@@ -1,6 +1,6 @@
 //const getTrackData = require('./database/helpers.jsx').getTrackData;
 //const updateTrackData = require('./database/helpers.jsx').updateTrackData;
-
+const getArtist = require('../database/helpers.jsx').getArtist;
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -12,22 +12,20 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.post('/trackStats', (req, res) => {
+app.post('/api/tracks', (req, res) => {
   let user = req.body;
-  console.log('posting at server: '.req.body);
+  console.log('posting at server: ', req.body);
   // getTrackData(user, (error, data) => {
   //   if(error) {return error}
   //   updateTrackData();
   // });
 });
 
-app.get('/api/trackStats', (req, res) => {
-  console.log('getting at server ');
-  res.send('Hi there!');
-
-  // getTrackStats((err, data) => {
-  //   res.send(data);
-  // });
+app.get('/api/tracks', (req, res) => {
+  getArtist((err, data) => {
+    if(err) return err;
+    res.send(data);
+  });
 });
 
 let port = 3001;
