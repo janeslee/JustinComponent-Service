@@ -20,37 +20,42 @@ let getRandomInt = (max) =>{
 };
 
 let plays = getRandomInt(8000000);
-let likes = getRandomInt(12000000);
+let likes = getRandomInt(230000);
 let shares = getRandomInt(200000);
 let comments = getRandomInt(40000);
 
 //100 tracks
 let tracks = [];
-for(let i = 0; i < 100; i++){
-  tracks.push(faker.company.bs());
-}
-
 //10 artists, albums, and playlists
 let artists = [];
 let albums = [];
 let playlists = [];
 let albumArt = [];
-
-for(i = 0; i< 10; i++){
-  playlists.push(faker.company.catchPhrase());
-  albums.push(faker.commerce.product());
-  albumArt.push(faker.random.image());
-  artists.push(`The ${faker.company.bsAdjective()} ${faker.name.findName()}`);
+//make that
+for(let i = 0; i < 100; i++){
+  if (i < 10) {
+    playlists.push(faker.company.catchPhrase());
+    albums.push(faker.commerce.product());
+    albumArt.push(faker.random.image());
+    artists.push(`The ${faker.company.bsAdjective()} ${faker.name.findName()}`);
+  }
+  tracks.push(faker.company.bs());
 }
 
 //assign ten tracks to each album, without repeating
+for(let i = 0; i < tracks.length; i++){
+  //reference for current album to push tracks into
+  let currAlbum = 0;
+  let ranTrack = getRandomInt(tracks.length);
+  let currTrack = tracks[i];
+  //if there are 10 tracks on an album, go to the next one
+  if(albums[currAlbum].length === 10)currAlbum++;
+  //push track onto current album
+  playlists[currAlbum].push(tracks[ranTrack]);
+  albums[currAlbum].push(currTrack);
+}
 
-//assign ten tracks to each playlist, 
-  //allowing only up to three from any given album in a playlist
-
-
-
-//create 100 random tracks
+//add tracks/playlists/albums to db
 // for(let i = 0; i < 100; i++){
 // db.query(`INSERT INTO tracks (artist, track, album, 
 //   playlistsIn, plays, likes, shares, comments) VALUES ()`,)
