@@ -23,7 +23,7 @@ app.post('/api/tracks', (req, res) => {
 
 app.get('/api/tracks', (req, res) => {
   getArtist((err, data) => {
-    if(err) return err;
+    if (err) return err;
     res.send(data);
   });
 });

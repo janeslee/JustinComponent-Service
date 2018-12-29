@@ -28,31 +28,26 @@ let comments = getRandomInt(40000);
 let tracks = [];
 //10 artists, albums, and playlists
 let artists = [];
-let albums = [];
-let playlists = [];
+let albums = {};
+let playlists = {};
 let albumArt = [];
+
 //make that
 for(let i = 0; i < 100; i++){
   if (i < 10) {
-    playlists.push(faker.company.catchPhrase());
-    albums.push(faker.commerce.product());
+    playlists[faker.company.catchPhrase()] = [];
+    albums[`${faker.commerce.product()} ${faker.commerce.product()} ${faker.commerce.product()}`] = [];
     albumArt.push(faker.random.image());
     artists.push(`The ${faker.company.bsAdjective()} ${faker.name.findName()}`);
   }
   tracks.push(faker.company.bs());
 }
+console.log('albums: ', albums);
 
 //assign ten tracks to each album, without repeating
 for(let i = 0; i < tracks.length; i++){
-  //reference for current album to push tracks into
-  let currAlbum = 0;
-  let ranTrack = getRandomInt(tracks.length);
-  let currTrack = tracks[i];
-  //if there are 10 tracks on an album, go to the next one
-  if(albums[currAlbum].length === 10)currAlbum++;
-  //push track onto current album
-  playlists[currAlbum].push(tracks[ranTrack]);
-  albums[currAlbum].push(currTrack);
+ 
+  
 }
 
 //add tracks/playlists/albums to db

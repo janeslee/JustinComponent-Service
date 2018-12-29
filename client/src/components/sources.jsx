@@ -10,3 +10,10 @@ class Sources extends React.Component {
     }
 }
 export default Sources;
+
+{/* `<div>
+      <div><span>Related Tracks ||</span><span> View All</span></div>
+      <div>{this.state.albums.artist}</div>
+      <div><span>Album Art |</span><span>| {this.state.albums.track}</span></div>
+      <div><span>Plays ||</span><span> Likes ||</span><span> Shares ||</span><span> Comments</span></div>
+      </div>` */}
