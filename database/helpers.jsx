@@ -33,11 +33,10 @@ for (let i = 0; i < 100; i += 1) {
 // add tracks/playlists/albums to db
 db.query(`SELECT * from tracks`, (err, res) => {
   if (err) { console.log(err); }
-  console.log('are there 100 or less?', res);
   if (res.length < 100) {
     for (let i = 0; i < 100; i += 1) {
       db.query(`INSERT INTO tracks (artist, track, album, albumArt, 
-        plays, likes, shares, comments) VALUES ('${artists[i]}', '${tracks[i]}', 
+        plays, likes, shares, comments) VALUES ('${artists[getRandomInt(9)]}', '${tracks[i]}', 
         '${albums[getRandomInt(9)]}', '${albumArt[getRandomInt(9)]}', ${plays}, ${likes}, ${shares}, ${comments})`);
     }
   }
