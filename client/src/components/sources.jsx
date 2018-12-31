@@ -6,15 +6,24 @@ import InAlbums from './inAlbums.jsx';
 class Sources extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+          areRelatedTracks: false,
+          arePlaylists: false,
+          areAlbums: false
+        };
     }
-    //componentDidUpdate
+    //componentDidUpdate(){
+    // if props contains related tracks, playlists, or albums,
+    // set state to true
+    // else state to false for each one that doesnt
+    //}
 
     render() {
    
         return (<div>
-            <RelatedTracks />
-            <InPlaylists />
-            <InAlbums /> 
+            <RelatedTracks areTracks={this.state.areRelatedTracks}/>
+            <InPlaylists arePlaylists={this.state.arePlaylists}/>
+            <InAlbums areAlbums={this.state.areAlbums}/> 
             </div>)
     }
 }

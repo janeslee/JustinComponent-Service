@@ -8,7 +8,7 @@ class RelatedTracks extends React.Component{
 
   render(){
     return (
-<div>
+            <div>
             <div><span>Related Tracks ||</span><span> View All</span></div>
             <div>Current Artist</div>
             <div><span>Album Art |</span><span>| Current Track</span></div>

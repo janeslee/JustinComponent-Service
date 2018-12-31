@@ -31,7 +31,8 @@ class App extends React.Component {
         shares: null,
         track: ""
       },
-      sharedBy: []
+      sharedBy: [],
+      likedBy: []
     };
   }
   componentDidMount() {
@@ -41,22 +42,12 @@ class App extends React.Component {
   getRelatedTracks() {
     axios.get('/api/tracks')
       .then(res => {
+        console.log('api res', res.data);
         this.setState({ albums: res.data[0] });
       })
       .catch(err => console.log('get err: ', err));
   }
   
-  handleClick(item){
-    let clicked = false;
-    if(clicked === false){
-      item+=1;
-      clicked = true;
-    }else{
-      item-=1;
-      clicked = false
-    }
-  }
-
   render() {
     return (
       <div><Sources /></div>
