@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import RelatedTracks from './relatedTracks.jsx';
+import InPlaylists from './inPlaylists.jsx';
+import InAlbums from './inAlbums.jsx';
 
 class Sources extends React.Component {
     constructor(props) {
@@ -8,15 +10,12 @@ class Sources extends React.Component {
     //componentDidUpdate
 
     render() {
-        console.log('sources props', this.props.trackInfo);
    
         return (<div>
-            <div><span>Related Tracks ||</span><span> View All</span></div>
-            <div>Current Artist</div>
-            <div><span>Album Art |</span><span>| Current Track</span></div>
-            <div><span>Plays ||</span><span> <button>Likes </button>||</span><span> <button>Shares</button> ||</span><span> Comments</span></div>
+            <RelatedTracks />
+            <InPlaylists />
+            <InAlbums /> 
             </div>)
-        
     }
 }
 export default Sources;

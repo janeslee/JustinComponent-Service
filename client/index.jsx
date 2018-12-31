@@ -19,17 +19,6 @@ class App extends React.Component {
         shares: '',
         comments: ''
       },
-      //get related tracks how? in album AND playlist together?
-      //query DB - select * where {currentTrack.album = album && currPlaylist = playlist}
-      //add found items to related tracks
-      //if there are less than three found, or none
-        //query DB and
-        //get tracks from track artist 
-        //until there are three related tracks (while relatedTracks.length <= 3)
-      //we have a selected current track (for this case it is randomized)
-      //we pull the top three playlists && albums it is in,
-      //sorted by likes, from the DB 
-      //
       relatedTracks: [],
       playlists: [],
       albums: {
@@ -48,7 +37,7 @@ class App extends React.Component {
   componentDidMount() {
     this.getRelatedTracks();
   }
-
+  
   getRelatedTracks() {
     axios.get('/api/tracks')
       .then(res => {
@@ -56,10 +45,21 @@ class App extends React.Component {
       })
       .catch(err => console.log('get err: ', err));
   }
+  
+  handleClick(item){
+    let clicked = false;
+    if(clicked === false){
+      item+=1;
+      clicked = true;
+    }else{
+      item-=1;
+      clicked = false
+    }
+  }
 
   render() {
     return (
-      <div><Sources trackInfo={this.state}/></div>
+      <div><Sources /></div>
     )
   }
 }
