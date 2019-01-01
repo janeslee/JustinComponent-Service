@@ -31,8 +31,8 @@ for (let i = 0; i < 100; i += 1) {
 }
 
 // add tracks/playlists/albums to db
-db.query(`SELECT * from tracks`, (err, res) => {
-  if (err) { console.log(err); }
+db.query('SELECT * from tracks', (err, res) => {
+  if (err) { return err; }
   if (res.length < 100) {
     for (let i = 0; i < 100; i += 1) {
       db.query(`INSERT INTO tracks (artist, track, album, albumArt, 
@@ -49,6 +49,25 @@ const getTracks = (callback) => {
   });
 };
 
+const sortTracks = (data) => {
+  let currentTrack = data[0];
+  let relatedTracks = [];
+  for (let i = 1; i < data.length; i += 1) {
+    if (data[i].album === currentTrack.album) {
+      if (relatedTracks.length < 3) {
+        relatedTracks.push(data[i]);
+      }
+    }
+  }
+
+  let filteredData = {
+    currTrack: currentTrack,
+    relTracks: relatedTracks,
+  };
+  return filteredData;
+};
+
 module.exports = {
   getTracks,
+  sortTracks,
 };

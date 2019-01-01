@@ -8,31 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTrack: {
-        id: '',
-        artist: '',
-        track: '',
-        album: '',
-        playlistsIn: '',
-        plays: '',
-        likes: '',
-        shares: '',
-        comments: ''
-      },
-      relatedTracks: [],
-      playlists: [],
-      albums: {
-        album: "",
-        artist: "",
-        comments: null,
-        likes: null,
-        playlistsIn: null,
-        plays: null,
-        shares: null,
-        track: ""
-      },
-      sharedBy: [],
-      likedBy: []
+      currentTrack: {}
     };
   }
   componentDidMount() {
@@ -43,14 +19,17 @@ class App extends React.Component {
     axios.get('/api/tracks')
       .then(res => {
         console.log('api res', res.data);
-        this.setState({ albums: res.data[0] });
+        this.setState({ 
+          currentTrack: res.data.currentTrack,
+          relatedTracks: res.data.relTracks
+        });
       })
       .catch(err => console.log('get err: ', err));
   }
   
   render() {
     return (
-      <div><Sources /></div>
+      <div><Sources currentTrack={this.state.currentTrack} relatedTracks={this.state.relatedTracks}/></div>
     )
   }
 }

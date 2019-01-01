@@ -12,20 +12,16 @@ class Sources extends React.Component {
           areAlbums: false
         };
     }
-    //componentDidUpdate(){
-    // if props contains related tracks, playlists, or albums,
-    // set state to true
-    // else state to false for each one that doesnt
-    //}
 
     render() {
-   
+        console.log('sources props', this.props)
         return (<div>
             <RelatedTracks areTracks={this.state.areRelatedTracks}/>
             <InPlaylists arePlaylists={this.state.arePlaylists}/>
             <InAlbums areAlbums={this.state.areAlbums}/> 
             </div>)
     }
+
 }
 export default Sources;
 
