@@ -15,9 +15,7 @@ app.use(express.static(`${__dirname}/../client/dist`));
 app.get('/api/tracks', (req, res) => {
   getTracks((err, data) => {
     if (err) return err;
-    console.log('sortTracks data ', data);
     const sortedData = sortTracks(data);
-    console.log('server side data, sorted', sortedData);
     res.send(sortedData);
   });
 });

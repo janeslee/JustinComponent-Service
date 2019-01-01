@@ -8,7 +8,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTrack: {}
     };
   }
   componentDidMount() {
@@ -20,7 +19,7 @@ class App extends React.Component {
       .then(res => {
         console.log('api res', res.data);
         this.setState({ 
-          currentTrack: res.data.currentTrack,
+          currentTrack: res.data.currTrack,
           relatedTracks: res.data.relTracks
         });
       })

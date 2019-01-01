@@ -1,24 +1,25 @@
+const faker = require('faker');
 const mysql = require('mysql');
 const mysqlConfig = require('./config.js');
+
 const db = mysql.createConnection(mysqlConfig);
-const faker = require('faker');
 
 // randomize likes, shares, plays, and comments for each track
-let getRandomInt = (max) => {
+const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 };
 
-let plays = getRandomInt(8000000);
-let likes = getRandomInt(230000);
-let shares = getRandomInt(200000);
-let comments = getRandomInt(40000);
+const plays = getRandomInt(8000000);
+const likes = getRandomInt(230000);
+const shares = getRandomInt(200000);
+const comments = getRandomInt(40000);
 
 // 100 tracks
-let tracks = [];
+const tracks = [];
 // 10 artists, albums, and album arts
-let artists = [];
-let albums = [];
-let albumArt = [];
+const artists = [];
+const albums = [];
+const albumArt = [];
 
 // make it all
 for (let i = 0; i < 100; i += 1) {
@@ -50,17 +51,14 @@ const getTracks = (callback) => {
 };
 
 const sortTracks = (data) => {
-  let currentTrack = data[0];
-  let relatedTracks = [];
+  const currentTrack = data[0];
+  const relatedTracks = [];
   for (let i = 1; i < data.length; i += 1) {
-    if (data[i].album === currentTrack.album) {
-      if (relatedTracks.length < 3) {
-        relatedTracks.push(data[i]);
-      }
+    if (data[i].album === currentTrack.album && relatedTracks.length < 3) {
+      relatedTracks.push(data[i]);
     }
   }
-
-  let filteredData = {
+  const filteredData = {
     currTrack: currentTrack,
     relTracks: relatedTracks,
   };
