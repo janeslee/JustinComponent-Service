@@ -8,6 +8,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+       currentTrack: null,
+       relatedTracks: null  
     };
   }
   componentDidMount() {
@@ -27,9 +29,14 @@ class App extends React.Component {
   }
   
   render() {
-    return (
+    if(this.state.currentTrack === null && this.state.relatedTracks === null){
+      return (<div>Loading ...</div>)
+    } else {  
+      return (
       <div><Sources currentTrack={this.state.currentTrack} relatedTracks={this.state.relatedTracks}/></div>
-    )
+      )
+  }
+  
   }
 }
 
