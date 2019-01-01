@@ -17,8 +17,8 @@ class Sources extends React.Component {
         console.log('sources props', this.props)
         return (<div>
             <RelatedTracks relatedTracks={this.props.relatedTracks} areTracks={this.state.areRelatedTracks}/>
-            <InPlaylists arePlaylists={this.state.arePlaylists}/>
-            <InAlbums areAlbums={this.state.areAlbums}/> 
+            <InPlaylists relatedTracks={this.props.relatedTracks} arePlaylists={this.state.arePlaylists}/>
+            <InAlbums currentTrack={this.props.currentTrack} areAlbums={this.state.areAlbums}/> 
             </div>)
     }
 

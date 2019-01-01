@@ -7,12 +7,21 @@ class InPlaylists extends React.Component{
   }
 
   render(){
-    return (<div>
-      <div><span>Playlists ||</span><span> View All</span></div>
-      <div>Current Artist</div>
-      <div><span>Playlist Art |</span><span>| Current Track</span></div>
-      <div><span>Plays ||</span><span> <button>Likes </button>||</span><span> <button>Shares</button> ||</span><span> Comments</span></div>
-      </div>)
+    return (
+      <div><span>Playlists ||</span><span> View All</span>
+      {this.props.relatedTracks.map(track => {
+        return (
+          <div>
+          <div>{track.artist}</div>
+          <div><span>{track.albumArt} |</span><span>| {track.track}</span></div>
+          <div><span>{track.plays} ||</span><span> <button>{track.likes} </button>||</span><span> <button>{track.shares}</button> ||</span><span>{track.comments}</span></div>
+          </div>
+        )
+      })
+      }
+      </div>
+    )
+    
   }
 
 }

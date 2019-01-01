@@ -29,7 +29,7 @@ class App extends React.Component {
   }
   
   render() {
-    if(this.state.currentTrack === null && this.state.relatedTracks === null){
+    if(this.state.currentTrack === null){
       return (<div>Loading ...</div>)
     } else {  
       return (

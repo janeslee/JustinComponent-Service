@@ -4,15 +4,10 @@ const mysqlConfig = require('./config.js');
 
 const db = mysql.createConnection(mysqlConfig);
 
-// randomize likes, shares, plays, and comments for each track
+// randomizer for each track's likes, shares, plays, and comments
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * Math.floor(max));
 };
-
-const plays = getRandomInt(8000000);
-const likes = getRandomInt(230000);
-const shares = getRandomInt(200000);
-const comments = getRandomInt(40000);
 
 // 100 tracks
 const tracks = [];
@@ -38,7 +33,7 @@ db.query('SELECT * from tracks', (err, res) => {
     for (let i = 0; i < 100; i += 1) {
       db.query(`INSERT INTO tracks (artist, track, album, albumArt, 
         plays, likes, shares, comments) VALUES ('${artists[getRandomInt(9)]}', '${tracks[i]}', 
-        '${albums[getRandomInt(9)]}', '${albumArt[getRandomInt(9)]}', ${plays}, ${likes}, ${shares}, ${comments})`);
+        '${albums[getRandomInt(9)]}', '${albumArt[getRandomInt(9)]}', ${getRandomInt(800000)}, ${getRandomInt(23000)}, ${getRandomInt(20000)}, ${getRandomInt(4000)})`);
     }
   }
 });

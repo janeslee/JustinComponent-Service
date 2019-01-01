@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 
-class InAlbums extends React.Component{
-  constructor(props){
+class InAlbums extends React.Component {
+  constructor(props) {
     super(props);
   }
 
-  render(){
-    return (<div>
-      <div><span>Albums ||</span><span> View All</span></div>
-      <div>Current Artist</div>
-      <div><span>Album Art |</span><span>| Current Track</span></div>
-      <div><span>Plays ||</span><span> <button>Likes </button>||</span><span> <button>Shares</button> ||</span><span> Comments</span></div>
-      </div>)
+
+  render() {
+    return (
+      <div><span>Albums ||</span><span> View All</span>
+        <div>
+          <div>{this.props.currentTrack.artist}</div>
+          <div><span>{this.props.currentTrack.albumArt} |</span><span>| {this.props.currentTrack.track}</span></div>
+          <div><span>{this.props.currentTrack.plays} ||</span><span> <button>{this.props.currentTrack.likes} </button>||</span><span> <button>{this.props.currentTrack.shares}</button> ||</span><span>{this.props.currentTrack.comments}</span></div>
+        </div>
+      </div>
+    )
+
   }
 
 }
