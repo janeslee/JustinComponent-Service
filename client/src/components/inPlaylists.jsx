@@ -7,7 +7,6 @@ class InPlaylists extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div style={{ margin: 5 }}>
         <div style={{ display: 'flex', flexDirection: 'row' }}>

@@ -20,7 +20,6 @@ class App extends React.Component {
   getRelatedTracks() {
     axios.get('/api/tracks')
       .then(res => {
-        console.log('api res', res.data);
         this.setState({ 
           currentTrack: res.data.currTrack,
           relatedTracks: res.data.relTracks,

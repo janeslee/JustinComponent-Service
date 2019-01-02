@@ -9,7 +9,7 @@ class Sources extends React.Component {
     }
 
   render() {
-    console.log('sources props', this.props)
+
     return (<div style={{ display: 'flex', flexDirection: 'column' }}>
       <RelatedTracks style={{ flex: 1 }} relatedTracks={this.props.relatedTracks}  />
       <InPlaylists style={{ flex: 1 }} plists={this.props.plists} />
