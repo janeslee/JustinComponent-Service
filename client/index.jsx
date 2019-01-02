@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Sources from './src/components/sources.jsx';
 import axios from 'axios';
+// import InPlaylists from './src/components/inPlaylists';
 
 
 class App extends React.Component {
@@ -22,7 +23,8 @@ class App extends React.Component {
         console.log('api res', res.data);
         this.setState({ 
           currentTrack: res.data.currTrack,
-          relatedTracks: res.data.relTracks
+          relatedTracks: res.data.relTracks,
+          playlists: res.data.plists
         });
       })
       .catch(err => console.log('get err: ', err));
@@ -33,7 +35,7 @@ class App extends React.Component {
       return (<div>Loading ...</div>)
     } else {  
       return (
-      <div><Sources currentTrack={this.state.currentTrack} relatedTracks={this.state.relatedTracks}/></div>
+      <div><Sources currentTrack={this.state.currentTrack} plists={this.state.playlists} relatedTracks={this.state.relatedTracks}/></div>
       )
   }
   

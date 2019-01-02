@@ -48,14 +48,19 @@ const getTracks = (callback) => {
 const sortTracks = (data) => {
   const currentTrack = data[0];
   const relatedTracks = [];
+  const playlists = [];
   for (let i = 1; i < data.length; i += 1) {
     if (data[i].album === currentTrack.album && relatedTracks.length < 3) {
       relatedTracks.push(data[i]);
+    } else if (data[i].album === currentTrack.album && relatedTracks.length >= 3 
+      && playlists.length < 3) {
+      playlists.push(data[i]);
     }
   }
   const filteredData = {
     currTrack: currentTrack,
     relTracks: relatedTracks,
+    plists: playlists,
   };
   return filteredData;
 };
