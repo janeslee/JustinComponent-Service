@@ -20,7 +20,7 @@ app.get('/api/tracks', (req, res) => {
   });
 });
 
-const port = 3001;
+const port = 3004;
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
