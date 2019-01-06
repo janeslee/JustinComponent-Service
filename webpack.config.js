@@ -3,7 +3,7 @@ var dir_in = path.join(__dirname, '/client');
 var dir_out = path.join(__dirname, '/client/dist');
 
 
-//fix webpacl config in morning
+// fix webpacl config in morning
 
 module.exports = {
   entry: `${dir_in}/index.jsx`,

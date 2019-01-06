@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Sources from './src/components/sources.jsx';
 import axios from 'axios';
-// import InPlaylists from './src/components/inPlaylists';
+
 
 
 class App extends React.Component {
@@ -10,15 +10,31 @@ class App extends React.Component {
     super(props);
     this.state = {
        currentTrack: null,
-       relatedTracks: null  
+       relatedTracks: null,
+       id: 1  
     };
   }
   componentDidMount() {
-    this.getRelatedTracks();
+    var songId;
+    var id = window.location.pathname.slice(
+      1,
+      window.location.pathname.length - 1
+    );
+    
+    if (id) {
+      songId = Number(id);
+    } else {
+      songId = this.state.id;
+    }
+    console.log('web id', id);
+    console.log('song id', songId);
+    this.getRelatedTracks(songId);
   }
   
-  getRelatedTracks() {
-    axios.get('/api/tracks')
+  getRelatedTracks(id) {
+   
+
+    axios.get(`/:${id}`)
       .then(res => {
         this.setState({ 
           currentTrack: res.data.currTrack,
@@ -34,7 +50,7 @@ class App extends React.Component {
       return (<div>Loading ...</div>)
     } else {  
       return (
-      <div><Sources currentTrack={this.state.currentTrack} plists={this.state.playlists} relatedTracks={this.state.relatedTracks}/></div>
+      <div style={{width:300}}><Sources currentTrack={this.state.currentTrack} plists={this.state.playlists} relatedTracks={this.state.relatedTracks}/></div>
       )
   }
   
