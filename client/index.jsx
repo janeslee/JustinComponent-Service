@@ -15,19 +15,15 @@ class Related extends React.Component {
     };
   }
   componentDidMount() {
+    console.log('component mounted');
     var songId;
     var id = window.location.pathname.slice(
       1,
       window.location.pathname.length - 1
     );
     
-    if (id) {
-      songId = Number(id);
-    } else {
-      songId = this.state.id;
-    }
-    console.log('web id', id);
-    console.log('song id', songId);
+    id ? songId = Number(id) : songId = this.state.id;
+
     this.getRelatedTracks(songId);
   }
   
@@ -39,6 +35,7 @@ class Related extends React.Component {
           relatedTracks: res.data.relTracks,
           playlists: res.data.plists
         });
+        console.log(this.state.currentTrack);
       })
       .catch(err => console.log('get err: ', err));
   }
