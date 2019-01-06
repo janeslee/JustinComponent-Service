@@ -8,23 +8,23 @@ class InPlaylists extends React.Component {
 
   render() {
     return (
-      <div style={{ margin: 5 }}>
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
-          <span style={{ flex: 1 }}>Playlists</span><span style={{ flex: 2 }}> View All</span>
+      <div style={{ margin: 5, width: 300 }}>
+        <div style={{ display: 'flex', flexDirection: 'row', color: 'gray', borderBottom: 'solid', borderWidth: 1 }}>
+          <span style={{ backgroundImage: `url(https://s3.us-east-2.amazonaws.com/feccompimgs/relatedTracks%3AalbumsSquares.png)`, width: 20, height: 20, opacity: 1, paddingRight: 10 }}></span><span style={{ flex: 1 }}>Playlists</span><span>View All</span>
         </div>
 
-        <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+        <ul style={{ listStyle: 'none', margin: 0, padding: 0, paddingTop: 5 }}>
           {this.props.plists.map(track => {
             let background = track.albumArt;
             return (
-              <li>
-                <div style={{ display: 'flex', flexDirection: 'row' }}>
-                  <span style={{ flex: 1, margin: 5, padding: 5 }}>
+              <li style={{ width: 300, height: 72.19 }}>
+                <div style={{ display: 'flex', flexDirection: 'row', width: 306, height: 62.19 }}>
+                  <span style={{ flex: 1, width: 62, height: 60 }}>
                     <div style={{ backgroundImage: `url(${background})`, width: 50, height: 50, opacity: 1 }} />
                   </span>
 
-                  <div style={{ flex: 9, margin: 5, padding: 5 }}>
-                    <div>{track.artist}</div>
+                  <div style={{ flex: 3 }}>
+                    <div style={{ color: 'gray' }}>{track.artist}</div>
                     <div>{track.track}</div>
                     <SoundStats stats={[track.plays, track.likes, track.shares, track.comments]} />
                   </div>
@@ -36,9 +36,7 @@ class InPlaylists extends React.Component {
         </ul>
       </div>
     )
-
   }
-
 }
 
 export default InPlaylists;
