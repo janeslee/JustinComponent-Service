@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "seedDB": "mysql -u root < schema.sql | node database/helpers.jsx",
-    "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js"
+    "seed": "mysql -u root < schema.sql | node database/helpers.jsx",
+    "build": "webpack -d --watch",
+    "start": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",
