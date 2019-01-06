@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 
-class App extends React.Component {
+class Related extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,8 +32,6 @@ class App extends React.Component {
   }
   
   getRelatedTracks(id) {
-   
-
     axios.get(`/:${id}`)
       .then(res => {
         this.setState({ 
@@ -57,4 +55,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Related />, document.getElementById('Related'));
