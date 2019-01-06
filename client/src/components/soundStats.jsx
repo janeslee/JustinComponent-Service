@@ -24,8 +24,8 @@ class SoundStats extends React.Component {
     return (
       <div>
         <span style={{ margin: 2, height: 16 }}> {this.props.stats[0]} </span>
-        <span style={{ margin: 2 }}> <button style={{ background: 'none', border: 'none' }} onClick={(e) => this.handleClick(e, 'liked')}> {this.props.stats[1]} </button> </span>
-        <span style={{ margin: 2 }}> <button style={{ background: 'none', border: 'none' }} onClick={(e) => this.handleClick(e, 'shared')}> {this.props.stats[2]} </button> </span>
+        <span style={{ margin: 2 }}> <a style={{ background: 'none', border: 'none' }} onClick={(e) => this.handleClick(e, 'liked')}> {this.props.stats[1]} </a> </span>
+        <span style={{ margin: 2 }}> <a style={{ background: 'none', border: 'none' }} onClick={(e) => this.handleClick(e, 'shared')}> {this.props.stats[2]} </a> </span>
         <span style={{ margin: 2, height: 16 }}> {this.props.stats[3]} </span>
       </div >
     )
