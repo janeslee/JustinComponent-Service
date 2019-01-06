@@ -14,12 +14,12 @@ class InAlbums extends React.Component {
       <div style={{ margin: 5, width: 300 }}>
       
       {/* component header */}
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
-          <span style={{ flex: 1 }}><h4>Albums</h4></span><span style={{ }}><h4> View All</h4></span>
+        <div style={{ display: 'flex', flexDirection: 'row', color: 'gray', borderBottom: 'solid', borderWidth: 1 }}>
+          <span style={{ flex: 1 }}>Albums</span><span style={{ }}>View All</span>
         </div>
 
         {/* album li container */}
-        <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+        <ul style={{ listStyle: 'none', margin: 0, padding: 0, paddingTop: 5 }}>
          
          {/* album li object */}
           <li style={{width:300, height:72.19}}>

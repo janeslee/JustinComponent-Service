@@ -9,23 +9,23 @@ class RelatedTracks extends React.Component {
 
   render() {
     return (
-      <div style={{ margin: 5 }}>
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
-          <span style={{ flex: 1 }}>Related Tracks</span><span style={{ flex: 2 }}> View All</span>
+      <div style={{ margin: 5, width: 300 }}>
+        <div style={{ display: 'flex', flexDirection: 'row', color: 'gray', borderBottom: 'solid', borderWidth: 1 }}>
+          <span style={{ flex: 1 }}>Related Tracks</span><span style={{ }}>View All</span>
         </div>
 
-        <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+        <ul style={{ listStyle: 'none', margin: 0, padding: 0, paddingTop: 5 }}>
           {this.props.relatedTracks.map(track => {
             let background = track.albumArt;
             return (
               <li>
                 <div style={{ display: 'flex', flexDirection: 'row'}}>
-                  <span style={{ flex: 1, margin: 5, padding: 5 }}>
+                  <span style={{ flex: 1 }}>
                     <div style={{ backgroundImage: `url(${background})`, width: 50, height: 50, opacity: 1 }} />
                   </span>
 
-                  <div style={{ flex: 9, margin: 5, padding: 5 }}>
-                    <div>{track.artist}</div>
+                  <div style={{ flex: 3 }}>
+                    <div style={{color: 'gray'}}>{track.artist}</div>
                     <div>{track.track}</div>
                     <SoundStats stats={[track.plays, track.likes, track.shares, track.comments]} />
                   </div>

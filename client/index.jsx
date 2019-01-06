@@ -48,7 +48,7 @@ class Related extends React.Component {
       return (<div>Loading ...</div>)
     } else {  
       return (
-      <div style={{width:300}}><Sources currentTrack={this.state.currentTrack} plists={this.state.playlists} relatedTracks={this.state.relatedTracks}/></div>
+      <div style={{width:300, borderLeft: 'solid', borderWidth: 1, borderColor:'gray', paddingLeft: 30}}><Sources currentTrack={this.state.currentTrack} plists={this.state.playlists} relatedTracks={this.state.relatedTracks}/></div>
       )
   }
   
