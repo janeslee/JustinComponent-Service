@@ -15,7 +15,7 @@ class InAlbums extends React.Component {
       
       {/* component header */}
         <div style={{ display: 'flex', flexDirection: 'row', color: 'gray', borderBottom: 'solid', borderWidth: 1 }}>
-          <span style={{ flex: 1 }}>Albums</span><span style={{ }}>View All</span>
+        <span style={{ backgroundImage: `url(https://s3.us-east-2.amazonaws.com/feccompimgs/relatedTracks%3AalbumsSquares.png)`, width: 20, height: 20, opacity: 1, paddingRight: 10 }}></span><span style={{ flex: 1 }}>Albums</span><span style={{ }}>View All</span>
         </div>
 
         {/* album li container */}
